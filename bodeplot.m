@@ -22,7 +22,7 @@ function [yabs, yarg] = bodeplot (G, logminf, logmaxf, miny=0, maxy=0)
 %   bodeplot(G, -2, 1, -60, 20);
 
 argd = @(x) (180/pi) * arg(x);
-ticks = @(d,y) [floor(min(y)/d)*d:d:ceil(max(y)/d)*d];
+% ticks = @(d,y) [floor(min(y)/d)*d:d:ceil(max(y)/d)*d];
 
 omega = logspace(logminf, logmaxf, 1e4);
 jomega = j * omega;
@@ -34,7 +34,7 @@ subplot(2, 1, 1);
 semilogx(omega, yabs);
 ylabel('Gain (db)');
 grid on;
-set(gca,'YTick', ticks(20, yabs));
+% set(gca,'YTick', ticks(20, yabs));
 if miny != maxy
   axis([10^logminf, 10^logmaxf, miny, maxy]);
 end
@@ -44,4 +44,4 @@ semilogx(omega, yarg);
 ylabel('Phase (deg)');
 xlabel('Frequency (rad/sec)');
 grid on;
-set(gca, 'YTick', ticks(90, yarg));
+% set(gca, 'YTick', ticks(90, yarg));
