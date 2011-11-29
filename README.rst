@@ -7,7 +7,8 @@ Plot Bode and Nyquist diagrams using Octave.
 Bode Diagrams
 =============
 
-Define a transfer function and plot its Bode diagram::
+Define a transfer function and plot its Bode diagram from 10\ :sup:`-2`
+to 10\ :sup:`1`::
 
   G = @(s) 1 ./ ((1 + 3.*s) .* (1 + 2*0.1*5.*s + 25.*s.*s));
   bodeplot(G, -2, 1);
