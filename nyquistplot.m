@@ -1,4 +1,4 @@
-function [yre, yim] = nyquistplot (G, maxr=0, logminf=-5, logmaxf=5)
+function [yre, yim] = nyquistplot (G, maxr=2, logminf=-5, logmaxf=5)
 % Plots a Nyquist diagram.
 %
 %   nyquistplot (G);
@@ -29,8 +29,4 @@ plot(yre, yim);
 ylabel('Imaginary part');
 xlabel('Real part');
 grid on;
-if maxr > 0
-  axis([-maxr-1, maxr-1, -maxr, maxr], 'square');
-else
-  axis('auto', 'square');
-end
+axis([-maxr-1, maxr-1, -maxr, maxr], 'square', 'equal');
