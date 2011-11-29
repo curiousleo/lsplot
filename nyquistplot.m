@@ -20,8 +20,7 @@ function [yre, yim] = nyquistplot (G, maxr=0, logminf=-5, logmaxf=5)
 %   G = @(s) 1./((1+3.*s).*(1+2*0.1*5.*s+25.*s.*s));
 %   nyquistplot(G, 3);
 
-omega = logspace(logminf, logmaxf, 1e4);
-jomega = j * omega;
+jomega = j * logspace(logminf, logmaxf, 1e4);
 
 yre = real(G(jomega));
 yim = imag(G(jomega));
