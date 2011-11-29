@@ -1,7 +1,7 @@
-function [yre, yim] = nyquistplot (G, minf, maxf)
+function [yre, yim] = nyquistplot (G, logminf, logmaxf)
 % Plots a Nyquist diagram.
 %
-%   nyquistplot (G, minf, maxf)
+%   nyquistplot (G, logminf, logmaxf)
 %
 % Arguments:
 %
@@ -10,21 +10,21 @@ function [yre, yim] = nyquistplot (G, minf, maxf)
 %   This transfer function must be defined before nyquistplot is
 %   called.
 %
-% - minf and maxf are the minimum and maximum for the frequency omega
-%   (in rad/s).
+% - logminf and logmaxf are the minimum and maximum for the frequency
+%   omega (in rad/s).
 %
 % Example:
 %
 %   G = @(s) 1./((1+3.*s).*(1+2*0.1*5.*s+25.*s.*s));
 %   nyquistplot(G, -1, 1);
 
-omega = linspace(minf, maxf, 1000);
-jomega = i*omega;
+omega = logspace(logminf, logmaxf, 1e4);
+jomega = j * omega;
 
 yre = real(G(jomega));
 yim = imag(G(jomega));
 
-plot(yre,yim);
+plot(yre, yim);
 ylabel('Imaginary part');
 xlabel('Real part');
 grid on;

@@ -21,21 +21,21 @@ function [yabs, yarg] = bodeplot (G, logminf, logmaxf)
 argd = @(x) (180/pi) * arg(x);
 ticks = @(d,y) [floor(min(y)/d)*d:d:ceil(max(y)/d)*d];
 
-omega = logspace(logminf, logmaxf);
-jomega = i*omega;
+omega = logspace(logminf, logmaxf, 1e4);
+jomega = j * omega;
 
-yabs = 20*log(abs(G(jomega)));
+yabs = 20 * log10(abs(G(jomega)));
 yarg = argd(G(jomega));
 
-subplot(2,1,1);
-semilogx(omega,yabs);
+subplot(2, 1, 1);
+semilogx(omega, yabs);
 ylabel('Gain (db)');
 grid on;
-set(gca,'YTick',ticks(20,yabs));
+set(gca,'YTick', ticks(20, yabs));
 
-subplot(2,1,2);
-semilogx(omega,yarg);
+subplot(2, 1, 2);
+semilogx(omega, yarg);
 xlabel('Frequency (Hz)');
 ylabel('Phase (Hz)');
 grid on;
-set(gca,'YTick',ticks(45,yarg));
+set(gca, 'YTick', ticks(45, yarg));
