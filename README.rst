@@ -19,8 +19,3 @@ Define another transfer function and plot its Nyquist diagram::
 
   G = @(s) 7 ./ (1 + 2*0.1*5.*s + 25.*s.*s);
   nyquistplot(G,-1,1);
-
-Double Plot
-===========
-
-``doubleplot(G,min,max)`` plots each diagram in its own window.
