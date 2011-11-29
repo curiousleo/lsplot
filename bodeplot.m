@@ -41,7 +41,7 @@ end
 
 subplot(2, 1, 2);
 semilogx(omega, yarg);
-xlabel('Frequency (Hz)');
-ylabel('Phase (Hz)');
+ylabel('Phase (deg)');
+xlabel('Frequency (rad/sec)');
 grid on;
 set(gca, 'YTick', ticks(90, yarg));
