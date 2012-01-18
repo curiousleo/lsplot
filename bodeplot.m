@@ -30,6 +30,7 @@ jomega = j * omega;
 yabs = 20 * log10(abs(G(jomega)));
 yarg = argd(G(jomega));
 
+clf;
 subplot(2, 1, 1);
 semilogx(omega, yabs);
 ylabel('Gain (db)');
