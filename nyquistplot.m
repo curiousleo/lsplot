@@ -25,7 +25,7 @@ jomega = j * logspace(logminf, logmaxf, 1e4);
 yre = real(G(jomega));
 yim = imag(G(jomega));
 
-clearplot;
+clf;
 plot(yre, yim);
 ylabel('Imaginary part');
 xlabel('Real part');
